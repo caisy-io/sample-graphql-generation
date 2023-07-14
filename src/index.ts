@@ -52,10 +52,10 @@ export const getEntriesByContentType = async (
     );
   }
 
-  //   get only the nodes from the response
+  // get only the nodes from the response
+  // apply the fake pagination
   const nodes = json.data[Object.keys(json.data)[0]].edges.map((e: any) => e.node);
   if (pagination){
-    // apply the fake pagination
     if ((pagination.skip || 0) > nodes.length) {
         return [];
     }
